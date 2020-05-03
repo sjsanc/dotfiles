@@ -1,7 +1,7 @@
 #!/bin/bash
-
+# thanks to vindennl48 for the original file <3
 # curl me in by:
-# $ curl 'https://raw.githubusercontent.com/vindennl48/dotfiles/master/arch_install' > arch_install
+# $ curl 'https://raw.githubusercontent.com/sjsanc/dotfiles/master/arch_install' > arch_install
 # $ chmod a+x arch_install
 
 echo "     :::     :::::::::   ::::::::  :::    ::: "
