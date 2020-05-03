@@ -1,5 +1,6 @@
 #!/bin/bash
 # thanks to vindennl48 for the original file <3
+
 # curl me in by:
 # $ curl 'https://raw.githubusercontent.com/sjsanc/dotfiles/master/arch_install' > arch_install
 # $ chmod a+x arch_install
@@ -11,8 +12,9 @@ echo " +#++:++#++: +#++:++#:  +#+        +#++:++#++ "
 echo " +#+     +#+ +#+    +#+ +#+        +#+    +#+ "
 echo " #+#     #+# #+#    #+# #+#    #+# #+#    #+# "
 echo " ###     ### ###    ###  ########  ###    ### "
-
-read -p "Rady to install? If yes (y), If no (CTRL+C)." choice
+echo " "
+echo " "
+read -p "Ready to install? If yes (y), If no (CTRL+C)." choice
 
 DISK='sda'        # change this to desired drive
 BOOT_SIZE='+200M'
