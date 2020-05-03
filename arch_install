@@ -4,14 +4,15 @@
 # $ curl 'https://raw.githubusercontent.com/vindennl48/dotfiles/master/arch_install' > arch_install
 # $ chmod a+x arch_install
 
-echo '- Make sure you run `wifi-menu` and connect to wifi first'
-echo '- Make sure you change $DISK value to what disk you want to'
-echo '  install onto! '
-echo '- Also, make sure this drive is CLEAR first!'
-echo '- Lastly, set desired partition sizes within this file!'
-echo ''
+echo "     :::     :::::::::   ::::::::  :::    ::: "
+echo "   :+: :+:   :+:    :+: :+:    :+: :+:    :+: "
+echo "  +:+   +:+  +:+    +:+ +:+        +:+    +:+ "
+echo " +#++:++#++: +#++:++#:  +#+        +#++:++#++ "
+echo " +#+     +#+ +#+    +#+ +#+        +#+    +#+ "
+echo " #+#     #+# #+#    #+# #+#    #+# #+#    #+# "
+echo " ###     ### ###    ###  ########  ###    ### "
 
-read -p "Have you completed the above steps? If yes (y), If no (CTRL+C)." choice
+read -p "Rady to install? If yes (y), If no (CTRL+C)." choice
 
 DISK='sda'        # change this to desired drive
 BOOT_SIZE='+200M'
@@ -57,27 +58,34 @@ systemctl enable NetworkManager
 
 mkinitcpio -p linux
 
+# clean up mirrorlist
+curl "https://www.archlinux.org/mirrorlist/?country=GB" -o /etc/pacman.d/mirrorlist
+
+# install grub bootloader
 pacman -S --needed --noconfirm grub
 grub-install --target=i386-pc /dev/"$DISK"
 grub-mkconfig -o /boot/grub/grub.cfg
 
-
+# set root password
 echo    "----> Set password for root"
 read -p "      (Press ENTER to continue)" choice
 passwd
 
-
+# set locale & timezone
 echo    "----> Set locales, uncomment all en_GB"
 read -p "      (Press ENTER to continue)" choice
 vim /etc/locale.gen
 locale-gen
-
 echo "LANG=en_GB.UTF-8" > /etc/locale.conf
-
 ln -sf /usr/share/zoneinfo/GMT /etc/localtime
 
+# set hostname
 echo "entity" > /etc/hostname
 
+# add main user
+echo    "----> Add first user: " 
+read firstUser
+useradd -m $firsUser -g wheel,audio,video,optical,storage
 
 echo    "----> Set wheel permissions: uncomment 'wheel ALL=(ALL) ALL' and add 'Defaults !tty_tickets'"
 read -p "      (Press ENTER to continue)" choice
