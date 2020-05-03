@@ -82,10 +82,10 @@ ln -sf /usr/share/zoneinfo/GMT /etc/localtime
 # set hostname
 echo "entity" > /etc/hostname
 
-# add main user
-echo    "----> Add first user: " 
-read firstUser
-useradd -m $firsUser -g wheel,audio,video,optical,storage
+# add user
+echo    "----> Add primary user: " 
+read user
+useradd -m $user -g wheel
 
 echo    "----> Set wheel permissions: uncomment 'wheel ALL=(ALL) ALL' and add 'Defaults !tty_tickets'"
 read -p "      (Press ENTER to continue)" choice
