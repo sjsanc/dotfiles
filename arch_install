@@ -13,7 +13,7 @@ echo ''
 
 read -p "Have you completed the above steps? If yes (y), If no (CTRL+C)." choice
 
-DISK='sdx'        # change this to desired drive
+DISK='sda'        # change this to desired drive
 BOOT_SIZE='+200M'
 ROOT_SIZE=''      # '' will select default size
 
@@ -43,7 +43,7 @@ mount /dev/"$DISK"2 /mnt
 mkdir /mnt/boot /mnt/home
 mount /dev/"$DISK"1 /mnt/boot
 
-pacstrap /mnt linux linux-firmware base base-devel networkmanager vim git
+pacstrap /mnt linux linux-firmware base base-devel networkmanager vim nano 
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -67,23 +67,24 @@ read -p "      (Press ENTER to continue)" choice
 passwd
 
 
-echo    "----> Set locales, uncomment all en_US"
+echo    "----> Set locales, uncomment all en_GB"
 read -p "      (Press ENTER to continue)" choice
 vim /etc/locale.gen
 locale-gen
 
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -sf /usr/share/zoneinfo/GMT /etc/localtime
 
-echo "arch" > /etc/hostname
+echo "entity" > /etc/hostname
 
 
 echo    "----> Set wheel permissions: uncomment 'wheel ALL=(ALL) ALL' and add 'Defaults !tty_tickets'"
 read -p "      (Press ENTER to continue)" choice
 vim /etc/sudoers
 
-echo    "----> Make sure to exit to main screen and un-mount /mnt!"
+echo    "----> Make sure to exit to main screen and un-mount /mnt/boot"
+echo    "      then /mnt then shutdown now
 read -p "      (Press ENTER to continue)" choice
 }
 
