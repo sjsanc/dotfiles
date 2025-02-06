@@ -1,0 +1,130 @@
+{
+    "height": 30,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "custom/playerctl-spotify",
+        "custom/playerctl-prev",
+        "custom/playerctl-toggle",
+        "custom/playerctl-next"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "custom/spacer",
+        "wireplumber",
+        "custom/spacer",
+        "network",
+        "custom/spacer",
+        "custom/updates",
+        "custom/spacer",
+        "battery",
+        "custom/spacer",
+        "clock"
+    ],
+
+    "custom/playerctl-spotify": {
+        "format": " {} ",
+        "exec": "$HOME/.config/waybar/spotify.sh --metadata",
+        "interval": 1
+    },
+    "custom/playerctl-prev": {
+        "format": "  ",
+        "on-click": "playerctl previous"
+    },
+    "custom/playerctl-toggle": {
+        "format": " {} ",
+        "on-click": "playerctl -p spotify play-pause; pkill -SIGRTMIN+10 waybar",
+        "exec": "$HOME/.config/waybar/spotify.sh --status",
+        "signal": 10
+    },
+    "custom/playerctl-next": {
+        "format": "  ",
+        "on-click": "playerctl next"
+    },
+
+    "custom/spacer": {
+        "format": "·"
+    },
+    "custom/updates": {
+        "exec": "checkupdates | wc -l",
+        "interval": 3600,
+        "format": " {}"
+    },
+
+    "network": {
+        "format": " {essid}",
+        "format-ethernet": " {essid}",
+        "format-disconnected": "discon.",
+        "tooltip-format-wifi": "{ifname}\n{essid}\n{ipaddr}/{cidr}\n{frequency}MHz\n{signaldBm}dBm ({signalStrength}%)\nup: {bandwidthUpBits} / down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ipaddr}",        
+        "tooltip-format-disconnected": "Disconnected :(",
+        "max-length": 50,
+        "interval": 3,
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": " {}%",
+        "tooltip-format": "{temperatureC}",
+        "states": {
+            "high": 50
+        }
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "states": {
+            "high": 50
+        }
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {specific_free:0.0f}GB",
+        "path": "/home",
+        "unit": "GB"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}"
+    },
+
+    "battery": {
+        "full-at": 80,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": " {capacity}%",
+        "format-plugged": "",
+        "tooltip-format": "{capacity}%\n{timeTo}"
+    },
+
+    "wireplumber": {
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "婢 Muted",
+        "format-icons": ["奄", "奔", "墳"],
+        "tooltip-format": "{volume}%",
+        "tooltip-format-muted": "Muted"
+    }
+}
+

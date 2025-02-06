@@ -1,0 +1,71 @@
+* {
+    font-family: Cozette;
+    color: white;
+}
+
+window#waybar {
+    background-color: #0D1017;
+}
+
+button {
+    border-radius: 0;
+}
+
+.module {
+    padding: 0 5px;
+}
+.module:hover {
+    background-color: #1e222d;
+}
+
+/* Workspace */
+#workspaces button {
+    padding: 0px;
+    border-bottom: 2px solid transparent;
+}
+#workspaces button.focused {
+    background-color: #131721;
+    border-bottom: 2px solid #FF8F40;
+}
+#workspaces button.urgent {
+    background-color: #F07178;
+    border-bottom: 2px solid #F07178;
+}
+#workspaces:hover {
+    /* Unset module.hover */
+    background-color: #0D1017;
+}
+
+/* Network */
+#network.disconnected {
+    color: #F07178;
+}
+
+/* Battery */
+#battery.plugged {
+    color: #39BAE6;
+}
+#battery.charging {
+    color: #AAD94C;
+}
+#battery.warning {
+    color: #E6B450
+}
+#battery.critical {
+    color: #F07178;
+}
+
+/* Wireplumber */
+#wireplumber.muted {
+    color: #F07178;
+}
+
+/* CUSTOM */
+
+/* Spacer */
+#custom-spacer {
+    padding: 0 5px;
+}
+#custom-spacer:hover {
+    background-color: #0D1017;
+}

@@ -1,0 +1,8 @@
+*
+!.gitignore
+!ghostty/
+!ghostty/**
+!sway/
+!sway/**
+!waybar/
+!waybar/**
