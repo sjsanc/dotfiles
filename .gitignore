@@ -6,3 +6,5 @@
 !sway/**
 !waybar/
 !waybar/**
+!mako/
+!mako/**
