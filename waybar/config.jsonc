@@ -28,31 +28,33 @@
     ],
 
     "image#album-art": {
-        "exec":"$HOME/.config/waybar/album_art.sh",
+        "exec":"$HOME/.config/waybar/spotify/album-art.sh",
         "size": 32,
-        "interval":5
+        "restart-interval": 1,
+        "signal": 10
     },
 
     "custom/playerctl-spotify": {
         "format": " {} ",
-        "exec": "$HOME/.config/waybar/spotify.sh --metadata",
-        "interval": 1
+        "exec": "$HOME/.config/waybar/spotify/metadata.sh",
+        "restart-interval": 1,
+        "signal": 10
     },
     "custom/playerctl-prev": {
         "format": "  ",
-        "on-click": "playerctl previous",
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh previous",
         "tooltip-format": "Previous Song"
     },
     "custom/playerctl-toggle": {
         "format": " {} ",
-        "on-click": "playerctl -p spotify play-pause; pkill -SIGRTMIN+10 waybar",
-        "exec": "$HOME/.config/waybar/spotify.sh --status",
-        "signal": 10,
-        "tooltip-format": "Play/Pause"
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh play-pause",
+        "exec": "$HOME/.config/waybar/spotify/status.sh",
+        "tooltip-format": "Play/Pause",
+        "signal": 10
     },
     "custom/playerctl-next": {
         "format": "  ",
-        "on-click": "playerctl next",
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh next",
         "tooltip-format": "Next Song"
     },
 
