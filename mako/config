@@ -4,9 +4,9 @@ anchor=top-right
 background-color=#1e222d
 border-color=#0D1017
 border-size=2
-border-radius=5
+border-radius=3
 padding=10
-margin=5,10
+margin=5
 width=350
 icon-location=right
 

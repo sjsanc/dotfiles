@@ -4,6 +4,8 @@
         "sway/workspaces"
     ],
     "modules-center": [
+        "image#album-art",
+
         "custom/playerctl-spotify",
         "custom/playerctl-prev",
         "custom/playerctl-toggle",
@@ -25,6 +27,12 @@
         "clock"
     ],
 
+    "image#album-art": {
+        "exec":"$HOME/.config/waybar/album_art.sh",
+        "size": 32,
+        "interval":5
+    },
+
     "custom/playerctl-spotify": {
         "format": " {} ",
         "exec": "$HOME/.config/waybar/spotify.sh --metadata",
@@ -32,17 +40,20 @@
     },
     "custom/playerctl-prev": {
         "format": "  ",
-        "on-click": "playerctl previous"
+        "on-click": "playerctl previous",
+        "tooltip-format": "Previous Song"
     },
     "custom/playerctl-toggle": {
         "format": " {} ",
         "on-click": "playerctl -p spotify play-pause; pkill -SIGRTMIN+10 waybar",
         "exec": "$HOME/.config/waybar/spotify.sh --status",
-        "signal": 10
+        "signal": 10,
+        "tooltip-format": "Play/Pause"
     },
     "custom/playerctl-next": {
         "format": "  ",
-        "on-click": "playerctl next"
+        "on-click": "playerctl next",
+        "tooltip-format": "Next Song"
     },
 
     "custom/spacer": {

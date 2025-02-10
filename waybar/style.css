@@ -1,5 +1,6 @@
 * {
     font-family: Cozette;
+    font-size: 11px;
     color: white;
 }
 
@@ -68,4 +69,8 @@ button {
 }
 #custom-spacer:hover {
     background-color: #0D1017;
+}
+
+#image {
+    padding: 0;
 }
