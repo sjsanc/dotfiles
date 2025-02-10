@@ -8,3 +8,5 @@
 !waybar/**
 !mako/
 !mako/**
+!fish/
+!fish/config.fish
