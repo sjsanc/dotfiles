@@ -17,6 +17,7 @@
         "disk",
         "custom/spacer",
         "wireplumber",
+        "backlight",
         "custom/spacer",
         "network",
         "custom/spacer",
@@ -138,6 +139,12 @@
         "format-icons": ["奄", "奔", "墳"],
         "tooltip-format": "{volume}%",
         "tooltip-format-muted": "Muted"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
     }
 }
 
