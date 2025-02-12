@@ -19,6 +19,7 @@
         "wireplumber",
         "backlight",
         "custom/spacer",
+        "bluetooth",
         "network",
         "custom/spacer",
         "custom/updates",
@@ -145,6 +146,16 @@
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": ["", ""]
+    },
+
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": "",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     }
 }
 
