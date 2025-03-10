@@ -1,3 +1,12 @@
+# Set editors with fallbacks
+if command -v helix >/dev/null
+    set -x EDITOR helix
+else if command -v vim >/dev/null
+    set -x EDITOR vim
+else
+    set -x EDITOR nano
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
