@@ -1,0 +1,161 @@
+{
+    "height": 30,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "image#album-art",
+
+        "custom/playerctl-spotify",
+        "custom/playerctl-prev",
+        "custom/playerctl-toggle",
+        "custom/playerctl-next"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "custom/spacer",
+        "wireplumber",
+        "backlight",
+        "custom/spacer",
+        "bluetooth",
+        "network",
+        "custom/spacer",
+        "custom/updates",
+        "custom/spacer",
+        "battery",
+        "custom/spacer",
+        "clock"
+    ],
+
+    "image#album-art": {
+        "exec":"$HOME/.config/waybar/spotify/album-art.sh",
+        "size": 32,
+        "restart-interval": 1,
+        "signal": 10
+    },
+
+    "custom/playerctl-spotify": {
+        "format": " {} ",
+        "exec": "$HOME/.config/waybar/spotify/metadata.sh",
+        "restart-interval": 1,
+        "signal": 10
+    },
+    "custom/playerctl-prev": {
+        "format": "  ",
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh previous",
+        "tooltip-format": "Previous Song"
+    },
+    "custom/playerctl-toggle": {
+        "format": " {} ",
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh play-pause",
+        "exec": "$HOME/.config/waybar/spotify/status.sh",
+        "tooltip-format": "Play/Pause",
+        "signal": 10
+    },
+    "custom/playerctl-next": {
+        "format": "  ",
+        "on-click": "$HOME/.config/waybar/spotify/playerctl.sh next",
+        "tooltip-format": "Next Song"
+    },
+
+    "custom/spacer": {
+        "format": "·"
+    },
+    "custom/updates": {
+        "exec": "checkupdates | wc -l",
+        "interval": 3600,
+        "format": " {}"
+    },
+
+    "network": {
+        "format": " {essid}",
+        "format-ethernet": " {essid}",
+        "format-disconnected": "discon.",
+        "tooltip-format-wifi": "{ifname}\n{essid}\n{ipaddr}/{cidr}\n{frequency}MHz\n{signaldBm}dBm ({signalStrength}%)\nup: {bandwidthUpBits} / down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ipaddr}",        
+        "tooltip-format-disconnected": "Disconnected :(",
+        "max-length": 50,
+        "interval": 3,
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": " {}%",
+        "tooltip-format": "{temperatureC}",
+        "states": {
+            "high": 50
+        }
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "states": {
+            "high": 50
+        }
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {specific_free:0.0f}GB",
+        "path": "/home",
+        "unit": "GB"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}"
+    },
+
+    "battery": {
+        "full-at": 80,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": " {capacity}%",
+        "format-plugged": "",
+        "tooltip-format": "{capacity}%\n{timeTo}"
+    },
+
+    "wireplumber": {
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "婢 Muted",
+        "format-icons": ["奄", "奔", "墳"],
+        "tooltip-format": "{volume}%",
+        "tooltip-format-muted": "Muted"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
+
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": "",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    }
+}
+

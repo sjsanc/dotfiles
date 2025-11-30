@@ -1,0 +1,12 @@
+*
+!.gitignore
+!ghostty/
+!ghostty/**
+!sway/
+!sway/**
+!waybar/
+!waybar/**
+!mako/
+!mako/**
+!fish/
+!fish/config.fish

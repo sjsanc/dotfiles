@@ -1,0 +1,14 @@
+font=Cozette 11
+format=<b>%a</b>\n\n%s\n%b
+anchor=top-right
+background-color=#1e222d
+border-color=#0D1017
+border-size=2
+border-radius=3
+padding=10
+margin=5
+width=350
+icon-location=right
+
+[urgency=high]
+border-color=#FF8F40BB
