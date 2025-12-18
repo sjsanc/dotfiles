@@ -1,24 +1,31 @@
 * {
-    font-family: 'JetBrainsMono Nerd Font';
-    font-size: 12px;
+    font-family: 'FiraCode Nerd Font', 'Fira Code', 'Fira Sans';
+    font-size: 16px;
     font-weight: 600;
 }
 
+/* Use Fira Sans for text labels */
+#clock {
+    font-family: 'Fira Sans';
+}
+
+#custom-playerctl-spotify {
+    font-family: 'Fira Sans';
+}
+
 window#waybar {
-    background-color: #0D1017;
-    border-bottom: 1px solid #0D1017;
+    background-color: #212121;
 }
 
 button {
-    border-radius: 0;
 }
 
 .module {
-    padding: 0 5px;
+    padding: 0 10px;
     color: white;
 }
 .module:hover {
-    background-color: #1e222d;
+    background-color: #595450;
 }
 
 /* Workspace */
@@ -26,51 +33,47 @@ button {
     background-color: transparent;
 }
 #workspaces button {
-    padding: 0px;
+    padding: 0 5px;
     min-width: 30px;
     min-height: 30px;
     background-color: transparent;
     border: none;
-    color: white;
 }
 #workspaces button.active {
-    background-color: white;
-    color: black;
+    color: white;
 }
 #workspaces button.urgent {
-    background-color: #F07178;
-    color: #0D1017;
+    background-color: #f7768e;
+    color: #1a1b26;
 }
 #workspaces button:hover {
-    background-color: #1e222d;
     color: white;
 }
 #workspaces button.active:hover {
-    background-color: #e0e0e0;
-    color: black;
+    color: #1a1b26;
 }
 /* Network */
 #network.disconnected {
-    color: #F07178;
+    color: #f7768e;
 }
 
 /* Battery */
 #battery.plugged {
-    color: #39BAE6;
+    color: #7dcfff;
 }
 #battery.charging {
-    color: #AAD94C;
+    color: #9ece6a;
 }
 #battery.warning {
-    color: #E6B450
+    color: #e0af68
 }
 #battery.critical {
-    color: #F07178;
+    color: #f7768e;
 }
 
 /* Wireplumber */
 #wireplumber.muted {
-    color: #F07178;
+    color: #f7768e;
 }
 
 /* CUSTOM */
@@ -80,7 +83,7 @@ button {
     padding: 0 5px;
 }
 #custom-spacer:hover {
-    background-color: #0D1017;
+    background-color: #414868;
 }
 
 #image {

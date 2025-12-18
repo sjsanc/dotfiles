@@ -1,5 +1,5 @@
 {
-    "height": 30,
+    "height": 40,
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -15,23 +15,24 @@
         "cpu",
         "memory",
         "disk",
-        "custom/spacer",
         "wireplumber",
         "backlight",
-        "custom/spacer",
         "bluetooth",
         "network",
-        "custom/spacer",
         "custom/updates",
-        "custom/spacer",
         "battery",
-        "custom/spacer",
         "clock"
     ],
 
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        }
+    },
+
     "image#album-art": {
         "exec":"$HOME/.config/waybar/spotify/album-art.sh",
-        "size": 32,
+        "size": 40,
         "restart-interval": 1,
         "signal": 10
     },
@@ -43,7 +44,7 @@
         "signal": 10
     },
     "custom/playerctl-prev": {
-        "format": "  ",
+        "format": " 󰒮 ",
         "on-click": "$HOME/.config/waybar/spotify/playerctl.sh previous",
         "tooltip-format": "Previous Song"
     },
@@ -55,7 +56,7 @@
         "signal": 10
     },
     "custom/playerctl-next": {
-        "format": "  ",
+        "format": " 󰒭 ",
         "on-click": "$HOME/.config/waybar/spotify/playerctl.sh next",
         "tooltip-format": "Next Song"
     },
@@ -66,15 +67,16 @@
     "custom/updates": {
         "exec": "checkupdates | wc -l",
         "interval": 3600,
-        "format": " {}"
+        "format": "󰚰",
+        "tooltip-format": "{} updates available"
     },
 
     "network": {
-        "format": " {essid}",
-        "format-ethernet": " {essid}",
-        "format-disconnected": "discon.",
+        "format": "󰖩",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
         "tooltip-format-wifi": "{ifname}\n{essid}\n{ipaddr}/{cidr}\n{frequency}MHz\n{signaldBm}dBm ({signalStrength}%)\nup: {bandwidthUpBits} / down: {bandwidthDownBits}",
-        "tooltip-format-ethernet": "{ipaddr}",        
+        "tooltip-format-ethernet": "{ipaddr}",
         "tooltip-format-disconnected": "Disconnected :(",
         "max-length": 50,
         "interval": 3,
@@ -83,22 +85,24 @@
 
     "cpu": {
         "interval": 5,
-        "format": " {}%",
-        "tooltip-format": "{temperatureC}",
+        "format": "󰻠",
+        "tooltip-format": "CPU: {}%\nTemp: {temperatureC}°C",
         "states": {
             "high": 50
         }
     },
     "memory": {
         "interval": 30,
-        "format": " {}%",
+        "format": "󰍛",
+        "tooltip-format": "RAM: {}%",
         "states": {
             "high": 50
         }
     },
     "disk": {
         "interval": 30,
-        "format": " {specific_free:0.0f}GB",
+        "format": "󰋊",
+        "tooltip-format": "{specific_free:0.0f}GB free\n{percentage_used}% used",
         "path": "/home",
         "unit": "GB"
     },
@@ -114,48 +118,48 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂"
         ],
-        "format-charging": " {capacity}%",
-        "format-plugged": "",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥",
         "tooltip-format": "{capacity}%\n{timeTo}"
     },
 
     "wireplumber": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "婢 Muted",
-        "format-icons": ["奄", "奔", "墳"],
-        "tooltip-format": "{volume}%",
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip-format": "Volume: {volume}%",
         "tooltip-format-muted": "Muted"
     },
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", ""]
+        "format": "{icon}",
+        "format-icons": ["󰃞", "󰃟"],
+        "tooltip-format": "Brightness: {percent}%"
     },
 
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-        "format": "",
-        "format-disabled": "", // an empty format will hide the module
-        "format-connected": " {num_connections} connected",
+        "format": "󰂯",
+        "format-disabled": "󰂲", // an empty format will hide the module
+        "format-connected": "󰂱",
         "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     }
 }
-
