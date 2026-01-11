@@ -10,3 +10,5 @@
 !mako/**
 !fish/
 !fish/config.fish
+!hypr/
+!hypr/hyprland.conf

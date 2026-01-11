@@ -30,3 +30,5 @@ end
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.dotnet/tools
 fish_add_path (go env GOPATH)/bin
+
+alias tethys 'ssh sjsanc@192.168.1.194'
