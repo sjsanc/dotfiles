@@ -19,16 +19,12 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # Start ssh-agent if not already running
-if test -z "$SSH_AGENT_PID"
-    eval (ssh-agent -c) >/dev/null
-end
+set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
 function fish_greeting
-    curl -s curl https://api.wc3.blizzardquotes.com/v1/quotes/random | jq '.value'
+    curl -s --max-time 2 https://api.wc3.blizzardquotes.com/v1/quotes/random | jq '.value'
 end
 
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.dotnet/tools
-fish_add_path (go env GOPATH)/bin
-
-alias tethys 'ssh sjsanc@192.168.1.194'
+fish_add_path $HOME/go/bin

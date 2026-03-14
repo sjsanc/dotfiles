@@ -1,13 +1,13 @@
 #!/bin/bash
 
-STATUS=$(playerctl -p spotify status)
+playerctl -p spotify status &>/dev/null || exit 0
 
-if [ "$STATUS" == "Stopped" ]; then
-    echo ""  # Stopped icon
-elif [ "$STATUS" == "Paused" ]; then
-    echo ""  # Paused icon
+STATUS=$(playerctl -p spotify status 2>/dev/null)
+
+if [ "$STATUS" == "Paused" ]; then
+    echo ""
 elif [ "$STATUS" == "Playing" ]; then
-    echo ""  # Playing icon
+    echo ""
 else
-    echo ''
+    echo ""
 fi
