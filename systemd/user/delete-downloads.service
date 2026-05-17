@@ -1,0 +1,7 @@
+[Unit]
+Description=Delete unwanted '~/Downloads' directory.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rm -rf %h/Downloads
+

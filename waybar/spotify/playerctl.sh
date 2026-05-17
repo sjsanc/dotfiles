@@ -1,11 +1,10 @@
-if [[ $1 == "next" ]]; then
-    playerctl -p spotify next; pkill -SIGRTMIN+10 waybar
-fi
+#!/bin/bash
 
-if [[ $1 == "previous" ]]; then
-    playerctl -p spotify previous; pkill -SIGRTMIN+10 waybar
-fi
+case "$1" in
+    next)       playerctl -p spotify next ;;
+    previous)   playerctl -p spotify previous ;;
+    play-pause) playerctl -p spotify play-pause ;;
+esac
 
-if [[ $1 == "play-pause" ]]; then
-    playerctl -p spotify play-pause; pkill -SIGRTMIN+10 waybar
-fi
+sleep 0.15
+pkill -SIGRTMIN+10 waybar

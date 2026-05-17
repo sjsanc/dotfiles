@@ -12,3 +12,8 @@
 !fish/config.fish
 !hypr/
 !hypr/hyprland.conf
+
+!systemd/
+!systemd/user/
+!systemd/user/delete-downloads.service
+!systemd/user/delete-downloads.path

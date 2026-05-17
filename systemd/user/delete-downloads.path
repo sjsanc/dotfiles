@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for unwanted '~/Downloads' directory
+
+[Path]
+PathExists=%h/Downloads
+
+[Install]
+WantedBy=default.target

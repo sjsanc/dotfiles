@@ -14,15 +14,30 @@
 }
 
 window#waybar {
+    background-color: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
     background-color: #212121;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.modules-left {
+    padding: 4px 0;
 }
 
 button {
 }
 
 .module {
+    min-height: 32px;
     padding: 0 10px;
     color: white;
+    border-radius: 6px;
+    margin: 0 1px;
 }
 .module:hover {
     background-color: #595450;
@@ -33,11 +48,12 @@ button {
     background-color: transparent;
 }
 #workspaces button {
-    padding: 0 5px;
-    min-width: 30px;
-    min-height: 30px;
+    padding: 0 10px;
+    min-height: 32px;
     background-color: transparent;
     border: none;
+    border-radius: 6px;
+    margin: 0 1px;
 }
 #workspaces button.active {
     color: white;
@@ -47,6 +63,7 @@ button {
     color: #1a1b26;
 }
 #workspaces button:hover {
+    background-color: #595450;
     color: white;
 }
 #workspaces button.active:hover {
