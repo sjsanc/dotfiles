@@ -95,13 +95,6 @@ button {
 
 /* CUSTOM */
 
-/* Spacer */
-#custom-spacer {
-    padding: 0 5px;
-}
-#custom-spacer:hover {
-    background-color: #414868;
-}
 
 #image {
     padding: 0;

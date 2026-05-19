@@ -11,7 +11,8 @@
         "custom/playerctl-spotify",
         "custom/playerctl-prev",
         "custom/playerctl-toggle",
-        "custom/playerctl-next"
+        "custom/playerctl-next",
+        "wireplumber#center"
     ],
     "modules-right": [
         "cpu",
@@ -42,11 +43,14 @@
     "custom/playerctl-spotify": {
         "format": " {} ",
         "exec": "$HOME/.config/waybar/spotify/metadata.sh",
-        "restart-interval": 1,
+        "restart-interval": 5,
         "signal": 10
     },
     "custom/playerctl-prev": {
-        "format": " 󰒮 ",
+        "format": " {} ",
+        "exec": "playerctl -p spotify status &>/dev/null && echo '󰒮' || exit 1",
+        "restart-interval": 5,
+        "signal": 10,
         "on-click": "$HOME/.config/waybar/spotify/playerctl.sh previous",
         "tooltip-format": "Previous Song"
     },
@@ -54,22 +58,23 @@
         "format": " {} ",
         "on-click": "$HOME/.config/waybar/spotify/playerctl.sh play-pause",
         "exec": "$HOME/.config/waybar/spotify/status.sh",
+        "restart-interval": 5,
         "tooltip-format": "Play/Pause",
         "signal": 10
     },
     "custom/playerctl-next": {
-        "format": " 󰒭 ",
+        "format": " {} ",
+        "exec": "playerctl -p spotify status &>/dev/null && echo '󰒭' || exit 1",
+        "restart-interval": 5,
+        "signal": 10,
         "on-click": "$HOME/.config/waybar/spotify/playerctl.sh next",
         "tooltip-format": "Next Song"
     },
 
-    "custom/spacer": {
-        "format": "·"
-    },
     "custom/updates": {
         "exec": "checkupdates | wc -l",
         "interval": 3600,
-        "format": "󰚰",
+        "format": "󰚰 {}",
         "tooltip-format": "{} updates available"
     },
 
@@ -146,6 +151,17 @@
         "format-icons": ["󰕿", "󰖀", "󰕾"],
         "tooltip-format": "Volume: {volume}%",
         "tooltip-format-muted": "Muted"
+    },
+
+    "wireplumber#center": {
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 muted",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip-format": "Volume: {volume}%",
+        "tooltip-format-muted": "Muted",
+        "margin-left": 8
     },
 
     "backlight": {
