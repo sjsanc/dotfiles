@@ -54,6 +54,7 @@ button {
     border: none;
     border-radius: 6px;
     margin: 0 1px;
+    box-shadow: none;
 }
 #workspaces button.active {
     color: white;
@@ -65,11 +66,16 @@ button {
 #workspaces button:hover {
     background-color: #595450;
     color: white;
+    box-shadow: none;
+    border: none;
 }
 #workspaces button.active:hover {
     color: #1a1b26;
 }
 /* Network */
+#network.wifi {
+    color: #84cc16;
+}
 #network.disconnected {
     color: #f7768e;
 }
@@ -86,6 +92,11 @@ button {
 }
 #battery.critical {
     color: #f7768e;
+}
+
+/* Bluetooth */
+#bluetooth.connected {
+    color: #3b82f6;
 }
 
 /* Wireplumber */
