@@ -19,9 +19,9 @@
         "memory",
         "disk",
         "backlight",
+        "custom/updates",
         "bluetooth",
         "network",
-        "custom/updates",
         "battery",
         "clock"
     ],
@@ -91,7 +91,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "󰻠",
+        "format": "󰻠 {usage}%",
         "tooltip-format": "CPU: {}%\nTemp: {temperatureC}°C",
         "states": {
             "high": 50
@@ -99,7 +99,7 @@
     },
     "memory": {
         "interval": 30,
-        "format": "󰍛",
+        "format": "󰍛 {percentage}%",
         "tooltip-format": "RAM: {}%",
         "states": {
             "high": 50
@@ -107,7 +107,7 @@
     },
     "disk": {
         "interval": 30,
-        "format": "󰋊",
+        "format": "󰋊 {percentage_used}%",
         "tooltip-format": "{specific_free:0.0f}GB free\n{percentage_used}% used",
         "path": "/home",
         "unit": "GB"

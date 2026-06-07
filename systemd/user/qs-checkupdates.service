@@ -1,0 +1,6 @@
+[Unit]
+Description=Cache pacman update list for quickshell
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'checkupdates > /tmp/qs-updates.list 2>/dev/null; true'

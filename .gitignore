@@ -14,8 +14,13 @@
 !fish/config.fish
 !hypr/
 !hypr/hyprland.conf
+!quickshell/
+!quickshell/**
 
 !systemd/
 !systemd/user/
 !systemd/user/delete-downloads.service
 !systemd/user/delete-downloads.path
+!systemd/user/qs-checkupdates.service
+!systemd/user/qs-checkupdates.timer
+!systemd/user/portico.service

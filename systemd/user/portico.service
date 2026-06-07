@@ -1,0 +1,14 @@
+[Unit]
+Description=Portico Bookmark Manager
+
+[Service]
+Type=simple
+WorkingDirectory=%h/work/portico/server
+Environment="ENV=production"
+Environment="PORT=8080"
+ExecStart=%h/work/portico/server/server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
